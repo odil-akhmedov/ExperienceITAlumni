@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AlumniDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AlumniDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Endorsement">
+          <Key>
+            <PropertyRef Name="EndorsementID" />
+          </Key>
+          <Property Name="EndorsementID" Type="int" Nullable="false" />
+          <Property Name="EndorsementOutline" Type="text" />
+        </EntityType>
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="Member_Id" />
@@ -24,10 +31,10 @@
           <Property Name="UserPhoto" Type="image" />
         </EntityType>
         <EntityContainer Name="AlumniDBModelStoreContainer">
+          <EntitySet Name="Endorsement" EntityType="Self.Endorsement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AlumniDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -51,7 +58,15 @@
         </EntityType>
         <EntityContainer Name="AlumniDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Members" EntityType="Self.Member" />
+          <EntitySet Name="Endorsements" EntityType="AlumniDBModel.Endorsement" />
         </EntityContainer>
+        <EntityType Name="Endorsement">
+          <Key>
+            <PropertyRef Name="EndorsementID" />
+          </Key>
+          <Property Name="EndorsementID" Type="Int32" Nullable="false" />
+          <Property Name="EndorsementOutline" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -74,6 +89,14 @@
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
                 <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Endorsements">
+            <EntityTypeMapping TypeName="AlumniDBModel.Endorsement">
+              <MappingFragment StoreEntitySet="Endorsement">
+                <ScalarProperty Name="EndorsementOutline" ColumnName="EndorsementOutline" />
+                <ScalarProperty Name="EndorsementID" ColumnName="EndorsementID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

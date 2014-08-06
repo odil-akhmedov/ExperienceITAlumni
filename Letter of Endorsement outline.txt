@@ -1,0 +1,29 @@
+[Your Name]
+[Street Address]
+[City, St, Zip]
+[Email Address]
+
+[Today's Date]
+
+[Name of Recipient]
+[Title]
+[Company]
+[Address]
+[City, St, Zip]
+
+Dear [Name of Recipient]:
+
+[Short intro paragraph - brief statement of who you are and the purpose of letter]
+
+[Provide details and facts about your work relationship to the person you are endorsing include relevant facts about the peson being endorsed]
+
+[Provide a statement on the quality and qualification of the person being endorsed]
+
+[Provide examples that support your endorsemen]
+
+[Close letter by summarizing the endorsment and declare your intent to communicate with whomever letter goes to]
+
+Sincerely,
+
+[Your name]
+[Titles]
