@@ -15,6 +15,27 @@ namespace ExperienceITAlumni.Models
     public partial class Endorsement
     {
         public int EndorsementID { get; set; }
-        public string EndorsementOutline { get; set; }
+        public string Your_Name { get; set; }
+        public string Street_Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public string Email_Address { get; set; }
+        public string Today_s_Date { get; set; }
+        public string Name_of_Recipient { get; set; }
+        public string Title { get; set; }
+        public string Company { get; set; }
+        public string Recipient_Address { get; set; }
+        public string Recipient_City { get; set; }
+        public string Recipient_State { get; set; }
+        public string Recipient_Zip { get; set; }
+        public string Salutation { get; set; }
+        public string Paragraph1 { get; set; }
+        public string Paragraph2 { get; set; }
+        public string Paragraph3 { get; set; }
+        public string Paragraph4 { get; set; }
+        public string Paragraph5 { get; set; }
+        public string Closing { get; set; }
+        public string Titles { get; set; }
     }
 }

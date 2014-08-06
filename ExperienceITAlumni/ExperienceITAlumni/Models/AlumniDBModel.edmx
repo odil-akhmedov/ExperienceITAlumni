@@ -10,7 +10,28 @@
             <PropertyRef Name="EndorsementID" />
           </Key>
           <Property Name="EndorsementID" Type="int" Nullable="false" />
-          <Property Name="EndorsementOutline" Type="text" />
+          <Property Name="Your Name" Type="text" />
+          <Property Name="Street Address" Type="text" />
+          <Property Name="City" Type="text" />
+          <Property Name="State" Type="text" />
+          <Property Name="Zip" Type="text" />
+          <Property Name="Email Address" Type="text" />
+          <Property Name="Today's Date" Type="text" />
+          <Property Name="Name of Recipient" Type="text" />
+          <Property Name="Title" Type="text" />
+          <Property Name="Company" Type="text" />
+          <Property Name="Recipient Address" Type="text" />
+          <Property Name="Recipient City" Type="text" />
+          <Property Name="Recipient State" Type="text" />
+          <Property Name="Recipient Zip" Type="text" />
+          <Property Name="Salutation" Type="text" />
+          <Property Name="Paragraph1" Type="text" />
+          <Property Name="Paragraph2" Type="text" />
+          <Property Name="Paragraph3" Type="text" />
+          <Property Name="Paragraph4" Type="text" />
+          <Property Name="Paragraph5" Type="text" />
+          <Property Name="Closing" Type="text" />
+          <Property Name="Titles" Type="text" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
@@ -65,7 +86,28 @@
             <PropertyRef Name="EndorsementID" />
           </Key>
           <Property Name="EndorsementID" Type="Int32" Nullable="false" />
-          <Property Name="EndorsementOutline" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Your_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Today_s_Date" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name_of_Recipient" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recipient_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recipient_City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recipient_State" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recipient_Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Salutation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Paragraph1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Paragraph2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Paragraph3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Paragraph4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Paragraph5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Closing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Titles" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -95,7 +137,28 @@
           <EntitySetMapping Name="Endorsements">
             <EntityTypeMapping TypeName="AlumniDBModel.Endorsement">
               <MappingFragment StoreEntitySet="Endorsement">
-                <ScalarProperty Name="EndorsementOutline" ColumnName="EndorsementOutline" />
+                <ScalarProperty Name="Titles" ColumnName="Titles" />
+                <ScalarProperty Name="Closing" ColumnName="Closing" />
+                <ScalarProperty Name="Paragraph5" ColumnName="Paragraph5" />
+                <ScalarProperty Name="Paragraph4" ColumnName="Paragraph4" />
+                <ScalarProperty Name="Paragraph3" ColumnName="Paragraph3" />
+                <ScalarProperty Name="Paragraph2" ColumnName="Paragraph2" />
+                <ScalarProperty Name="Paragraph1" ColumnName="Paragraph1" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="Recipient_Zip" ColumnName="Recipient Zip" />
+                <ScalarProperty Name="Recipient_State" ColumnName="Recipient State" />
+                <ScalarProperty Name="Recipient_City" ColumnName="Recipient City" />
+                <ScalarProperty Name="Recipient_Address" ColumnName="Recipient Address" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name_of_Recipient" ColumnName="Name of Recipient" />
+                <ScalarProperty Name="Today_s_Date" ColumnName="Today's Date" />
+                <ScalarProperty Name="Email_Address" ColumnName="Email Address" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="Your_Name" ColumnName="Your Name" />
                 <ScalarProperty Name="EndorsementID" ColumnName="EndorsementID" />
               </MappingFragment>
             </EntityTypeMapping>

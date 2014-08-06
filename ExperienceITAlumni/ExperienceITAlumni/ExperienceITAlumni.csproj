@@ -162,8 +162,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\EndorsementController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -200,6 +200,7 @@
     <Content Include="Content\Images\o-DETROIT-SKYLINE-facebook.gif" />
     <Content Include="Content\Images\o-DETROIT-SKYLINE-facebook.jpg" />
     <Content Include="Content\Images\o-DETROIT-SKYLINE-facebook.png" />
+    <Content Include="Content\Letter of Endorsement outline.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -269,6 +270,10 @@
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\Endorsement\Create.cshtml" />
+    <Content Include="Views\Endorsement\Delete.cshtml" />
+    <Content Include="Views\Endorsement\Details.cshtml" />
+    <Content Include="Views\Endorsement\Edit.cshtml" />
     <Content Include="Views\Endorsement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
