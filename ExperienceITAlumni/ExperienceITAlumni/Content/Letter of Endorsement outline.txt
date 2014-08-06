@@ -1,29 +1,29 @@
-{0}[Your Name]
-{1}[Street Address]
-{2}, {3}, {4}[City, St, Zip]
-{5}[Email Address]
+{0}
+{1}
+{2}, {3}, {4}
+{5}
 
-{6}[Today's Date]
+{6}
 
-{7}[Name of Recipient]
-{8}[Title]
-{9}[Company]
-{10}[Address]
-{11}, {12}, {13}[City, St, Zip]
+{7}
+{8}
+{9}
+{10}
+{11}, {12}, {13}
 
-Dear {7}[Name of Recipient]:
+Dear {7}
 
-{14}[Short intro paragraph - brief statement of who you are and the purpose of letter]
+{14}
 
-{15}[Provide details and facts about your work relationship to the person you are endorsing include relevant facts about the peson being endorsed]
+{15}
 
-{16}[Provide a statement on the quality and qualification of the person being endorsed]
+{16}
 
-{17}[Provide examples that support your endorsement]
+{17}
 
-{18}[Close letter by summarizing the endorsment and declare your intent to communicate with whomever letter goes to]
+{18}
 
 Sincerely,
 
-{0}[Your name]
-{19}[Titles]
+{0}
+{19}
