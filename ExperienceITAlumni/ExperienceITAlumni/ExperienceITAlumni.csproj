@@ -184,6 +184,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AlumniDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Endorsement.cs">
+      <DependentUpon>AlumniDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Member.cs">
       <DependentUpon>AlumniDBModel.tt</DependentUpon>

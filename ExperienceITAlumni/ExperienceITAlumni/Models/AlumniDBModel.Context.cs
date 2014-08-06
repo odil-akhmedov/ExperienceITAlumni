@@ -26,5 +26,6 @@ namespace ExperienceITAlumni.Models
         }
     
         public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<Endorsement> Endorsements { get; set; }
     }
 }
