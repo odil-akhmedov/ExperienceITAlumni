@@ -17,66 +17,68 @@
                 @Html.ValidationMessageFor(model => model.EndorsementID, "", new { @class = "text-danger" })
             </div>*@
         </div>
-
     
-    
-        <div class="form-group">
-            @Html.LabelFor(model => model.Your_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        
+         
+         <div class="form-group" style="position:absolute; left:0px; bottom:450px;">
+              
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Your_Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Your_Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Street_Address, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group" style="position:absolute; left:0px; bottom:412px;">
+           
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Street_Address, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Street_Address, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+       <div class="form-group" style="position:absolute; left:0px; bottom:380px">
+           
             <div class="col-md-10">
                 @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group" style="position:absolute; left:0px; bottom:350px">
+        
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
-            </div>
+        <div class="form-group" style="position:absolute; left:0px; bottom:280px">
+        
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email_Address, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email_Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email_Address, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group" style="position:absolute; left:0px; bottom:240px">
+       
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email_Address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email_Address, "", new { @class = "text-danger" })
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Today_s_Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Today_s_Date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Today_s_Date, "", new { @class = "text-danger" })
-            </div>
+    </div>
+    
+    <div class="form-group" style="position:absolute; left:0px; bottom:180px">
+        @*@Html.LabelFor(model => model.Today_s_Date, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Today_s_Date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Today_s_Date, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
+    // Needs to be a break here between this group and the one below but everything above and the next group should be on the left side of the page
+
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Name_of_Recipient, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name_of_Recipient, new { htmlAttributes = new { @class = "form-control" } })
@@ -130,10 +132,11 @@
                 @Html.EditorFor(model => model.Recipient_Zip, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Recipient_Zip, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
+    // Everything above should be on the left side of the page
 
-        <div>
+        @*<div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Salutation, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -182,10 +185,10 @@
                 </div>
             </div>
 
-        </div>
+        </div>*@
 
 
-        <div>
+        @*<div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Closing, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -200,16 +203,22 @@
                     @Html.EditorFor(model => model.Titles, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Titles, "", new { @class = "text-danger" })
                 </div>
-            </div>
+            </div>*@
+
+             @*// this group on the right of the page*@
 
 
-            <div class="form-group">
+            @*<div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Save" class="btn btn-default" />
                 </div>
             </div>
 
-        </div>
+        </div>*@
+
+    // this button needs to be centered but below everything else
+
+
     @*</div>*@
 }
 
