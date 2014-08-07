@@ -287,6 +287,11 @@
     <Content Include="Views\Endorsement\Details.cshtml" />
     <Content Include="Views\Endorsement\Edit.cshtml" />
     <Content Include="Views\Endorsement\Index.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

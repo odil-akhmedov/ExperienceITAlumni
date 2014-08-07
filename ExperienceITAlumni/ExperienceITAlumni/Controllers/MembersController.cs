@@ -12,12 +12,13 @@ namespace ExperienceITAlumni.Controllers
 {
     public class MembersController : Controller
     {
-        private AlumniDBEntities1 db = new AlumniDBEntities1();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Members
         public ActionResult Index()
         {
-            return View(db.Members.ToList());
+            var members = db.Members.Include(m => m.User);
+            return View(members.ToList());
         }
 
         // GET: Members/Details/5
@@ -27,17 +28,18 @@ namespace ExperienceITAlumni.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Member member = db.Members.Find(id);
-            if (member == null)
+            Members members = db.Members.Find(id);
+            if (members == null)
             {
                 return HttpNotFound();
             }
-            return View(member);
+            return View(members);
         }
 
         // GET: Members/Create
         public ActionResult Create()
         {
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -46,16 +48,17 @@ namespace ExperienceITAlumni.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Member_Id,FirstName,MiddleInitial,LastName,FaceBook,Google,Twitter,LinkedIn,GitHub,Email,PhoneNumber,EmployerName,UserPhoto")] Member member)
+        public ActionResult Create([Bind(Include = "Id,UserId,FirstName,LastName,Email,UploadPhoto,GitHub,LinkedIn,Twitter,Google,FaceBook,PhoneNumber,Resume,EmployerName,Title,Bio")] Members members)
         {
             if (ModelState.IsValid)
             {
-                db.Members.Add(member);
+                db.Members.Add(members);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(member);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", members.UserId);
+            return View(members);
         }
 
         // GET: Members/Edit/5
@@ -65,12 +68,13 @@ namespace ExperienceITAlumni.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Member member = db.Members.Find(id);
-            if (member == null)
+            Members members = db.Members.Find(id);
+            if (members == null)
             {
                 return HttpNotFound();
             }
-            return View(member);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", members.UserId);
+            return View(members);
         }
 
         // POST: Members/Edit/5
@@ -78,15 +82,16 @@ namespace ExperienceITAlumni.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Member_Id,FirstName,MiddleInitial,LastName,FaceBook,Google,Twitter,LinkedIn,GitHub,Email,PhoneNumber,EmployerName,UserPhoto")] Member member)
+        public ActionResult Edit([Bind(Include = "Id,UserId,FirstName,LastName,Email,UploadPhoto,GitHub,LinkedIn,Twitter,Google,FaceBook,PhoneNumber,Resume,EmployerName,Title,Bio")] Members members)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(member).State = EntityState.Modified;
+                db.Entry(members).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(member);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", members.UserId);
+            return View(members);
         }
 
         // GET: Members/Delete/5
@@ -96,12 +101,12 @@ namespace ExperienceITAlumni.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Member member = db.Members.Find(id);
-            if (member == null)
+            Members members = db.Members.Find(id);
+            if (members == null)
             {
                 return HttpNotFound();
             }
-            return View(member);
+            return View(members);
         }
 
         // POST: Members/Delete/5
@@ -109,8 +114,8 @@ namespace ExperienceITAlumni.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Member member = db.Members.Find(id);
-            db.Members.Remove(member);
+            Members members = db.Members.Find(id);
+            db.Members.Remove(members);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
