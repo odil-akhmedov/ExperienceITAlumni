@@ -1,7 +1,12 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using ExperienceITAlumni.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace ExperienceITAlumni.Models
 {
@@ -28,5 +33,8 @@ namespace ExperienceITAlumni.Models
         {
             return new ApplicationDbContext();
         }
+        public virtual DbSet<Members> Members { get; set; }
+
+
     }
 }
