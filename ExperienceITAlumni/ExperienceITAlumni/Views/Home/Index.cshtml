@@ -1,39 +1,9 @@
-﻿
-
-
-
-<body>
-    @*<br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <center>
-        <form action="/Account/Login">
-            <input type="submit" value="Login!">
-    </center>
-    </form>
-    <br />
-    <center>
-        <form action="/Account/Register">
-            <input type="submit" value="Register!">
-        </form>
-    </center>*@
-
-    
-   
-</body>
-
-
-
+﻿﻿ @*background image*@
 <style type="text/css">
     body{
         background-image: url('@Url.Content("~/Content/Images/o-DETROIT-SKYLINE-facebook.png")');
     }
-      
+
 
       img {
             opacity: 0.4;
@@ -46,8 +16,97 @@
             }
 
 </style>
-  
+<link rel="stylesheet" href="css/DialogBoxStyle.css" />
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/dialog.js"></script>
 
-    
+<style type="text/css">
+    #LoginSignup {
+        overflow: hidden;
+        background-image: url(/Content/Images/ExperienceITAlumniTransparentForHome.png);
+        border-bottom-width: 5px;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        height: 25%;
+        width: 36%;
+        position: absolute;
+        top: 35%;
+        left: 24%;
+        margin-top: -50px;
+        margin-left: -50px;
+        border: 1px solid black;
+        z-index: 0;
+    }
+</style>
+<body>
+    <div id="LoginSignup" title="Box">
+
+        @*<form action="/Account/Login">
+                <input style="background-color:#5bc0de; border:none;"
+                        type="submit" value="Login!">
+             </form>
+              <br/>
+            <form action="/Account/Register">
+                <input style="background-color:#5bc0de; border:none;"
+                       type="submit" value="Register!">
+            </form>*@
+
+        @*DIALOG BOX ATTEMPT 1*@
+
+        <div id="dialog" title="Dialog Form">
+            <form action="">
+                <input type="text" id="name" name="name"><br />
+                <input type="text" id="email" name="email"><br />
+                <input type="submit" id="submit" value="Submit!" />
+            </form>
+        </div>
+        <input type="button" id="button" value="Login?" />
+    </div>
+
+    <script type="text/javascript" language="javascript">
+            $(document).ready(function () {
 
 
+                $("#btnCreate").click(function () {
+                    InitializeDialog($("#Login"));
+
+                    $("#Login").dialog("open");
+                });
+
+
+
+                //dialogbox
+                function InitializeDialog($element) {
+
+
+                    $element.dialog({
+                        autoOpen: false,
+                        width: 400,
+                        resizable: true,
+                        draggable: true,
+                        title: "Login",
+                        model: true,
+                        show: 'slide',
+                        closeText: 'x',
+                        dialogClass: 'alert',
+                        closeOnEscape: true,
+                        open: function (event, ui) {
+                            //load view via controller
+                            $element.load('/Account/Login');
+                        },
+
+                        close: function () {
+                            $(this).dialog('close');
+                        }
+
+                    });
+
+                }
+            });
+
+
+    </script>
+    </div>
+</body>
