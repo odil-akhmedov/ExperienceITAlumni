@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace ExperienceITAlumni.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string UploadPhoto {get; set;}
+        public string UploadPhoto { get; set; }
         public string GitHub { get; set; }
         public string LinkedIn { get; set; }
         public string Twitter { get; set; }
@@ -27,10 +27,10 @@ namespace ExperienceITAlumni.Models
         public string PhoneNumber { get; set; }
         public string Resume { get; set; }
         public string EmployerName { get; set; }
-        public string Title {get; set;}
+        public string Title { get; set; }
         public string Bio { get; set; }
-        
-        [ForeignKey("UserId")]
+
+
         public virtual ApplicationUser User { get; set; }
     }
 }
