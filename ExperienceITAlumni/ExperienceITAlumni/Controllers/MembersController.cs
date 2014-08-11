@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ExperienceITAlumni.Models;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace ExperienceITAlumni.Controllers
 {
@@ -21,14 +24,27 @@ namespace ExperienceITAlumni.Controllers
             return View(members.ToList());
         }
 
-        // GET: Members/Details/5
-        public ActionResult Details(int? id)
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
         {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+        // GET: Members/Details/5
+        public async Task<ActionResult> Details(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Members members = db.Members.Find(id);
+            Members members = db.Members.Where(x => x.UserId == user.Id).Single();
             if (members == null)
             {
                 return HttpNotFound();
