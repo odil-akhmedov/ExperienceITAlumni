@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,9 +24,29 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Members", "Index", "Members")</li>
-                    <li>@Html.ActionLink("Chat", "Index", "Chat")</li>
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink(linkText: "Chat",
+                    actionName: "Index",
+                    controllerName: "Chat",
+                        routeValues: new { id = User.Identity.GetUserId() },
+                    htmlAttributes: null)
+                        </li>
+                    }
                     <li>@Html.ActionLink("Endorsement", "Create", "Endorsement")</li>
-                    <li>@Html.ActionLink("Profile", "Details", "Members")</li>
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink(linkText: "Profile",
+                    actionName: "Details",
+                    controllerName: "Members",
+                      routeValues: new { id = User.Identity.GetUserId() },
+                    htmlAttributes: null)
+                        </li>
+                    }
                 </ul>
 
             </div>
@@ -33,14 +54,13 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        @*<hr />*@
         @*<footer>
-            <p>&copy; @DateTime.Now.Year - name is a work in progress</p>
-        </footer>*@
+                <p>&copy; @DateTime.Now.Year - name is a work in progress</p>
+            </footer>*@
     </div>
-
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
-</html>

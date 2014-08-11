@@ -66,45 +66,45 @@
     </div>
 
     <script type="text/javascript" language="javascript">
-            $(document).ready(function () {
+        $(document).ready(function () {
 
 
-                $("#btnCreate").click(function () {
-                    InitializeDialog($("#Login"));
+            $("#btnCreate").click(function () {
+                InitializeDialog($("#Login"));
 
-                    $("#Login").dialog("open");
+                $("#Login").dialog("open");
+            });
+
+
+
+            //dialogbox
+            function InitializeDialog($element) {
+
+
+                $element.dialog({
+                    autoOpen: false,
+                    width: 400,
+                    resizable: true,
+                    draggable: true,
+                    title: "Login",
+                    model: true,
+                    show: 'slide',
+                    closeText: 'x',
+                    dialogClass: 'alert',
+                    closeOnEscape: true,
+                    open: function (event, ui) {
+                        //load view via controller
+                        $element.load('/Account/Login');
+                    },
+
+                    close: function () {
+                        $(this).dialog('close');
+                    }
+
                 });
 
-
-
-                //dialogbox
-                function InitializeDialog($element) {
-
-
-                    $element.dialog({
-                        autoOpen: false,
-                        width: 400,
-                        resizable: true,
-                        draggable: true,
-                        title: "Login",
-                        model: true,
-                        show: 'slide',
-                        closeText: 'x',
-                        dialogClass: 'alert',
-                        closeOnEscape: true,
-                        open: function (event, ui) {
-                            //load view via controller
-                            $element.load('/Account/Login');
-                        },
-
-                        close: function () {
-                            $(this).dialog('close');
-                        }
-
-                    });
-
-                }
-            });
+            }
+        });
 
 
     </script>
