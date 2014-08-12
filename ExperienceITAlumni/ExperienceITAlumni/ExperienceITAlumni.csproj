@@ -213,6 +213,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Alumni.JPG" />
+    <Content Include="Content\Images\AlumniTransparent.gif" />
+    <Content Include="Content\Images\ExperienceIT.png" />
+    <Content Include="Content\Images\ExperienceITAlumni.png" />
+    <Content Include="Content\Images\ExperienceITAlumniTransparent.gif" />
+    <Content Include="Content\Images\ExperienceITAlumniTransparentForHome.png" />
+    <Content Include="Content\Images\ExperienceITAlumniTransparentSmall.png" />
     <Content Include="Content\Images\o-DETROIT-SKYLINE-facebook.gif" />
     <Content Include="Content\Images\o-DETROIT-SKYLINE-facebook.jpg" />
     <Content Include="Content\Images\o-DETROIT-SKYLINE-facebook.png" />
