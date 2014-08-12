@@ -1,16 +1,27 @@
 ﻿﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Helpers;
+
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
+using ExperienceITAlumni;
 using ExperienceITAlumni.Models;
+using System.Web.Helpers;
+
+
+
+
+
+
 
 namespace ExperienceITAlumni.Controllers
 {
@@ -18,6 +29,7 @@ namespace ExperienceITAlumni.Controllers
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -48,6 +60,20 @@ namespace ExperienceITAlumni.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+
+        //public ActionResult LogOn()
+        //{
+        //    formsAuthentication.SignOut();
+
+        //    Response.Cookies.Clear();
+
+        //    Session[SessionKeys.USER_SESSION_KEY] = null;
+        //    Session.Clear();
+        //    Session.Abandon();
+
+
+        //    return View();
+        //}
 
         //
         // POST: /Account/Login
@@ -90,14 +116,21 @@ namespace ExperienceITAlumni.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(Members model)
         {
+            //var memb = from Members in db.Members select Members;
+           
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                model.UserId = user.Id;
                 if (result.Succeeded)
                 {
+                   
+                    int foo = db.Members.Count();
+                    db.Members.Add(model);
+                    db.SaveChanges();
                     await SignInAsync(user, isPersistent: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -139,6 +172,134 @@ namespace ExperienceITAlumni.Controllers
                 return View();
             }
         }
+
+        //
+        // GET: /Account/BeforePasswordReset
+        //[AllowAnonymous]
+        //public ActionResult ForgotPassword()
+        //{
+        //    return View();
+        //}
+
+        //
+        // POST: /Account/BeforePasswordReset
+
+        //http://stackoverflow.com/a/698879/208922
+
+        //[AllowAnonymous]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> ForgotPassword(BeforePasswordResetViewModel model)
+        //{
+        //    string message = null;
+        //    //the token is valid for one day
+        //    var until = DateTime.Now.AddDays(1);
+        //    //We find the user, as the token can not generate the e-mail address,
+        //    //but the name should be.
+        //    var db = new MyDbContext();
+        //    var user = db.Users.SingleOrDefault(x => x.Email == model.Email);
+
+        //    if (null != user)
+        //    {
+        //        var token = new StringBuilder();
+
+        //        //Prepare a 10-character random text
+        //        using (RNGCryptoServiceProvider
+        //                            rngCsp = new RNGCryptoServiceProvider())
+        //        {
+        //            var data = new byte[4];
+        //            for (int i = 0; i < 10; i++)
+        //            {
+        //                //filled with an array of random numbers
+        //                rngCsp.GetBytes(data);
+        //                //this is converted into a character from A to Z
+        //                var randomchar = Convert.ToChar(
+        //                    //produce a random number
+        //                    //between 0 and 25
+        //                                          BitConverter.ToUInt32(data, 0) % 26
+        //                    //Convert.ToInt32('A')==65
+        //                                          + 65
+        //                                 );
+        //                token.Append(randomchar);
+        //            }
+        //        }
+        //        //This will be the password change identifier
+        //        //that the user will be sent out
+        //        var tokenid = token.ToString();
+
+        //        //Generating a token
+        //        var result = await IdentityManager
+        //                                .Passwords
+        //                                .GenerateResetPasswordTokenAsync(
+        //                                              tokenid,
+        //                                              user.UserName,
+        //                                              until
+        //                           );
+
+        //        if (result.Success)
+        //        {
+        //            //send the email
+        //            //...
+        //        }
+        //    }
+        //    message = "We have sent a password reset request if the email is verified.";
+        //    return RedirectToAction("PasswordReset", new { token = string.Empty, message = message });
+        //}
+
+
+        //
+        // GET: /Account/PasswordReset
+        //[AllowAnonymous]
+        //public ActionResult PasswordReset(string message)
+        //{
+        //    ViewBag.StatusMessage = message ?? "";
+        //    return View();
+        //}
+
+        ////
+        //// POST: /Account/PasswordReset
+        //[AllowAnonymous]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> PasswordReset(PasswordResetViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        string message = null;
+        //        //reset the password
+        //        var result = await IdentityManager.Passwords.ResetPasswordAsync(model.Token, model.Password);
+        //        if (result.Success)
+        //        {
+        //            message = "The password has been reset.";
+        //            return RedirectToAction("PasswordResetCompleted", new { message = message });
+        //        }
+        //        else
+        //        {
+        //            AddErrors(result);
+        //        }
+        //    }
+        //    // If we got this far, something failed, redisplay form
+        //    return View(model);
+        //}
+
+        //
+        // GET: /Account/PasswordResetCompleted
+        //[AllowAnonymous]
+        //public ActionResult PasswordResetCompleted(string message)
+        //{
+        //    ViewBag.StatusMessage = message ?? "";
+        //    return View();
+        //}
+
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing && IdentityManager != null)
+        //    {
+        //        IdentityManager.Dispose();
+        //        IdentityManager = null;
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
         //
         // GET: /Account/ForgotPassword
@@ -437,11 +598,14 @@ namespace ExperienceITAlumni.Controllers
         //
         // POST: /Account/LogOff
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+
+
+            return RedirectToAction("Login", "Account");
+            
         }
 
         //
@@ -460,15 +624,7 @@ namespace ExperienceITAlumni.Controllers
             return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && UserManager != null)
-            {
-                UserManager.Dispose();
-                UserManager = null;
-            }
-            base.Dispose(disposing);
-        }
+        
 
         #region Helpers
         // Used for XSRF protection when adding external logins
@@ -561,4 +717,7 @@ namespace ExperienceITAlumni.Controllers
         }
         #endregion
     }
+
+    
+    
 }

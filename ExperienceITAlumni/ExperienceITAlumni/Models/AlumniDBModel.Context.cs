@@ -25,7 +25,7 @@ namespace ExperienceITAlumni.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<Endorsement> Endorsements { get; set; }
+        public virtual DbSet<Members> Members { get; set; }
     }
 }

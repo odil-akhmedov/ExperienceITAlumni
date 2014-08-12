@@ -39,12 +39,12 @@ namespace ExperienceITAlumni.Controllers
         // GET: Members/Details/5
         public async Task<ActionResult> Details(string id)
         {
-            var user = await UserManager.FindByIdAsync(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Members members = db.Members.Where(x => x.UserId == user.Id).Single();
+            var user = await UserManager.FindByIdAsync(id);
+            Members members = db.Members.First(x => x.UserId == user.Id);
             if (members == null)
             {
                 return HttpNotFound();
@@ -55,7 +55,7 @@ namespace ExperienceITAlumni.Controllers
         // GET: Members/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
+            ViewBag.UserId = new SelectList(db.Users, "Id");
             return View();
         }
 

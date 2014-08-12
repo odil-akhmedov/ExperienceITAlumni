@@ -36,7 +36,7 @@
                         </li>
                     }
                     <li>@Html.ActionLink("Endorsement", "Create", "Endorsement")</li>
-
+                    
                     @if (Request.IsAuthenticated)
                     {
                         <li>
@@ -48,6 +48,17 @@
                         </li>
                     }
                 </ul>
+
+                <form action="/Account/LogOff" class="navbar-right" id="logoutForm" method="post">
+                    <input name="__RequestVerificationToken" type="hidden" value="tPLm8WGcd2GWHbCTeydv37hdu86plqMEfBMNuworJMrTBEUDKxcSeFGMXZ3Cc1pOUGGLVM7QaMORig9zdG9GOvdU2l-snh9-hpCwwrkCor2GVrHNOFLZAT6nF-6DlI40gpc0RoRbP11ZazMhm8xA8w2" />    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @Html.ActionLink("Change Password: " + User.Identity.GetUserName() + "?", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            @*<a href="/Account/Manage" title="Manage">Hello lorettahammond@hotmail.com!</a>*@
+                        </li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    </ul>
+                </form>
+
 
             </div>
         </div>
