@@ -124,8 +124,10 @@ namespace ExperienceITAlumni.Controllers
             {
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                model.UserId = user.Id;
                 if (result.Succeeded)
                 {
+                   
                     int foo = db.Members.Count();
                     db.Members.Add(model);
                     db.SaveChanges();

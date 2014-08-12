@@ -11,6 +11,7 @@ namespace ExperienceITAlumni.Models
     public class Registering
     {
         public Members MemberList { get; set; }
+        
         public RegisterViewModel RegisterList { get; set; }
 
     }
