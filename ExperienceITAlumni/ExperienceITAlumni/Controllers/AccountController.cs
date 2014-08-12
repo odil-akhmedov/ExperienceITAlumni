@@ -21,13 +21,15 @@ using System.Web.Helpers;
 
 
 
+
+
 namespace ExperienceITAlumni.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
-        private AlumniDBEntities1 db = new AlumniDBEntities1();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -116,12 +118,15 @@ namespace ExperienceITAlumni.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(Members model)
         {
+            //var memb = from Members in db.Members select Members;
+           
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    int foo = db.Members.Count();
                     db.Members.Add(model);
                     db.SaveChanges();
                     await SignInAsync(user, isPersistent: false);
