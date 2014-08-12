@@ -35,10 +35,15 @@ namespace ExperienceITAlumni.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UploadPhoto { get; set; }
+        [Url]
         public string GitHub { get; set; }
+        [Url]
         public string LinkedIn { get; set; }
+        [Url]
         public string Twitter { get; set; }
+        [Url]
         public string Google { get; set; }
+        [Url]
         public string FaceBook { get; set; }
         public string PhoneNumber { get; set; }
         public string Resume { get; set; }
