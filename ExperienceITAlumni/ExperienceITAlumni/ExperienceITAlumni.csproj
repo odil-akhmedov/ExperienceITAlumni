@@ -204,9 +204,7 @@
       <DependentUpon>AlumniDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Member.cs">
-      <DependentUpon>AlumniDBModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Registering.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
