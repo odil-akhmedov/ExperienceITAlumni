@@ -42,13 +42,13 @@ namespace ExperienceITAlumni
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: "hkhc0A116bmRzQLUoO0UaBuv0",
+               consumerSecret: "c0zrno15EerLx0piHyY0CqDbvRqIa2IUxzi0cE5T2VAxdfVX9V");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1466639330252743",
+               appSecret: "9b0546d41b43f0f9eac18777f71f2e6a");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
