@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
+using ExperienceITAlumni;
 using ExperienceITAlumni.Models;
 
 namespace ExperienceITAlumni.Controllers
@@ -18,6 +19,7 @@ namespace ExperienceITAlumni.Controllers
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
+        private AlumniDBEntities1 db = new AlumniDBEntities1();
 
         public AccountController()
         {
@@ -90,7 +92,7 @@ namespace ExperienceITAlumni.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(Members model)
         {
             if (ModelState.IsValid)
             {
@@ -98,6 +100,8 @@ namespace ExperienceITAlumni.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    db.Members.Add(model);
+                    db.SaveChanges();
                     await SignInAsync(user, isPersistent: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

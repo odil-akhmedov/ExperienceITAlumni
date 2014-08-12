@@ -12,6 +12,7 @@ namespace ExperienceITAlumni.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+   
     
     public partial class AlumniDBEntities1 : DbContext
     {
@@ -24,8 +25,7 @@ namespace ExperienceITAlumni.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
-        public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<Members> Members { get; set; }
         public virtual DbSet<Endorsement> Endorsements { get; set; }
     }
 }
